@@ -37,7 +37,9 @@ router.get("/:name", async (request, response) => {
 router.put("/:name", async (request, response) => {
     try {
         var thinclient = await ThinClientModel.findOne({ name: request.params.name.toUpperCase() }).exec();
-        thinclient.set(request.body);
+        thinclient.set({
+            settings: request.body.settings
+        });
         var result = await thinclient.save();
         response.send(result);
     } catch (error) {

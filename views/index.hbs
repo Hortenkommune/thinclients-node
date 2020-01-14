@@ -45,10 +45,12 @@
     var obj = $(this).val();
     $.ajax({
       type: "PUT",
+      dataType: "json",
+      contentType: "application/json; charset=utf-8",
       url: "/thinclient/" + obj,
-      data: {
+      data : JSON.stringify({
         settings: $("#sel_" + obj).val()
-      },
+      }),
       success: function (result) {
         $("#lastmsg").removeClass("alert-danger");
         $("#lastmsg").addClass("alert-success");
