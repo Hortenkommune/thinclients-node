@@ -6,6 +6,7 @@ var ThinClientSchema = new Schema({
         type: String,
         required: true,
         uppercase: true,
+        trim: true,
         index: {
             unique: true,
             collation: { locale: 'en', strength: 2 }
@@ -15,6 +16,7 @@ var ThinClientSchema = new Schema({
         type: String,
         required: true,
         uppercase: true,
+        trim: true,
         index: {
             unique: true,
             collation: { locale: 'en', strength: 2 }
@@ -22,6 +24,7 @@ var ThinClientSchema = new Schema({
     },
     settings: {
         type: String,
+        trim: true,
         default: "1280"
     }
 });
