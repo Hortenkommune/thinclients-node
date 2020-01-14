@@ -27,7 +27,7 @@ router.get("/", async (request, response) => {
 
 router.get("/:name", async (request, response) => {
     try {
-        var thinclient = await ThinClientModel.findOne({ name: request.params.name.toUpperCase() }).exec();
+        var thinclient = await ThinClientModel.findOne({ name: request.params.name }).exec();
         response.send(thinclient);
     } catch (error) {
         response.status(500).send(error);
@@ -36,7 +36,7 @@ router.get("/:name", async (request, response) => {
 
 router.put("/:name", async (request, response) => {
     try {
-        var thinclient = await ThinClientModel.findOne({ name: request.params.name.toUpperCase() }).exec();
+        var thinclient = await ThinClientModel.findOne({ name: request.params.name }).exec();
         thinclient.set({
             settings: request.body.settings
         });
@@ -49,7 +49,7 @@ router.put("/:name", async (request, response) => {
 
 router.delete("/:name", async (request, response) => {
     try {
-        var result = await ThinClientModel.deleteOne({ name: request.params.name.toUpperCase() }).exec();
+        var result = await ThinClientModel.deleteOne({ name: request.params.name }).exec();
         response.send(result);
     } catch (error) {
         response.status(500).send(error);
