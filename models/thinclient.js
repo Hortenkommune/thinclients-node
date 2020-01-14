@@ -5,11 +5,20 @@ var ThinClientSchema = new Schema({
     name: {
         type: String,
         required: true,
-        unique: true
+        uppercase: true,
+        index: {
+            unique: true,
+            collation: { locale: 'en', strength: 2 }
+        }
     },
     mac: {
         type: String,
-        required: true
+        required: true,
+        uppercase: true,
+        index: {
+            unique: true,
+            collation: { locale: 'en', strength: 2 }
+        }
     },
     settings: {
         type: String,
