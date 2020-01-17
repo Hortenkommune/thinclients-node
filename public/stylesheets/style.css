@@ -2,6 +2,14 @@ body {
   padding-top: 4.5rem;
 }
 
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
 .alert-pre {
   word-wrap: break-word;
   word-break: break-all;
