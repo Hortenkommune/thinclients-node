@@ -7,7 +7,7 @@ var GroupModel = require('../models/group');
 router.get('/', async function(req, res, next) {
   var clients = await ThinClientModel.find().exec();
   var groups = await GroupModel.find().exec();
-  res.render('index', { title: 'ThinClients', clients: clients, groups: groups });
+  res.render('index', { title: 'ThinClient(s)', clients: clients, groups: groups });
 });
 
 module.exports = router;
