@@ -37,9 +37,21 @@ router.get("/:name", async (request, response) => {
 router.put("/:name", async (request, response) => {
     try {
         var thinclient = await ThinClientModel.findOne({ name: request.params.name.toUpperCase() }).exec();
-        thinclient.set({
-            settings: request.body.settings
-        });
+        if (request.body.settings) {
+            thinclient.set({
+                settings: request.body.settings
+            });
+        }
+        if (request.body.lastseen) {
+            thinclient.set({
+                lastseen: request.body.lastseen
+            });
+        }
+        if (request.body.lastknownip) {
+            thinclient.set({
+                lastknownip: request.body.lastknownip
+            });
+        }
         var result = await thinclient.save();
         response.send(result);
     } catch (error) {

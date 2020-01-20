@@ -26,6 +26,16 @@ var ThinClientSchema = new Schema({
         type: String,
         trim: true,
         default: "1280"
+    },
+    lastseen: {
+        type: String,
+        trim: true,
+        default: "never"
+    },
+    lastknownip: {
+        type: String,
+        trim: true,
+        default: "none"
     }
 });
 
