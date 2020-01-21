@@ -52,6 +52,11 @@ router.put("/:name", async (request, response) => {
                 lastknownip: request.body.lastknownip
             });
         }
+        if (request.body.wsversion) {
+            thinclient.set({
+                wsversion: request.body.wsversion
+            });
+        }
         var result = await thinclient.save();
         response.send(result);
     } catch (error) {

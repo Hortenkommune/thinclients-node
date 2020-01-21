@@ -36,6 +36,11 @@ var ThinClientSchema = new Schema({
         type: String,
         trim: true,
         default: "none"
+    },
+    wsversion: {
+        type: String,
+        trim: true,
+        default: "unknown"
     }
 });
 

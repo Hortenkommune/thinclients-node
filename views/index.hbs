@@ -4,6 +4,7 @@
 <table id="allitems" class="table">
   <thead align="center">
     <tr>
+      <th scope="col"></th>
       <th scope="col">Navn</th>
       <th scope="col">MAC</th>
       <th scope="col">Gruppe</th>
@@ -13,6 +14,7 @@
   <tbody>
     {{#each clients}}
     <tr align="center">
+      <td><a href="#" id="show_{{this.name}}" style="color: black;">Mer</a></td>
       <td>{{this.name}}</td>
       <td>{{this.mac}}</td>
       <td>
@@ -27,6 +29,15 @@
       <td>
         <button class="btn btn-dark" value="{{this.name}}">Oppdater</button>
       </td>
+      <tr class="more">
+        <td class="more" colspan="5">
+          <div id="extra_{{this.name}}" class="slider" style="display: none;">
+            <p>WS versjon: {{this.wsversion}}</p>
+            <p>Sist sett: {{this.lastseen}}</p>
+            <p>Siste kjente IP: {{this.lastknownip}}</p>          
+          </div>
+        </td>
+      </tr>
     </tr>
     {{/each}}
   </tbody>
@@ -48,7 +59,7 @@
       dataType: "json",
       contentType: "application/json; charset=utf-8",
       url: "/thinclient/" + obj,
-      data : JSON.stringify({
+      data: JSON.stringify({
         settings: $("#sel_" + obj).val()
       }),
       success: function (result) {
@@ -64,6 +75,11 @@
         $("#lastmsg").show();
       }
     });
+  });
+  $("a[id^=show_]").click(function (event) {
+    $("#trextra_" + $(this).attr('id').substr(5)).slideToggle("slow");
+    $("#extra_" + $(this).attr('id').substr(5)).slideToggle("slow");
+    event.preventDefault();
   });
 </script>
 {{else}}

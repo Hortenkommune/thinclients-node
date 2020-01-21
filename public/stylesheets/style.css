@@ -17,12 +17,25 @@ img {
 }
 
 .filter {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    width: 100%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 1rem; /* Add some space below the input */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 1rem; /* Add some space below the input */
+}
+
+tr.more {
+  padding: 0;
+}
+
+td.more {
+  padding: 0;
+}
+
+div.slider {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
