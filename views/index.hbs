@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     {{#each clients}}
-    <tr align="center">
+    <tr align="center" class="tblflt">
       <td><a href="#" id="show_{{this.name}}" style="color: black;">Mer</a></td>
       <td>{{this.name}}</td>
       <td>{{this.mac}}</td>
@@ -46,7 +46,7 @@
   $(document).ready(function () {
     $("#filter").on("keyup", function () {
       var value = $(this).val().toLowerCase();
-      $("#allitems tbody tr").filter(function () {
+      $("#allitems tbody tr.tblflt").filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
     });
