@@ -77,7 +77,6 @@
     });
   });
   $("a[id^=show_]").click(function (event) {
-    $("#trextra_" + $(this).attr('id').substr(5)).slideToggle("slow");
     $("#extra_" + $(this).attr('id').substr(5)).slideToggle("slow");
     event.preventDefault();
   });
