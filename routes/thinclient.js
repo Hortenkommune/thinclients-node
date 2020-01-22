@@ -73,4 +73,52 @@ router.delete("/:name", async (request, response) => {
     }
 });
 
+router.get("/id/:id", async (request, response) => {
+    try {
+        var thinclient = await ThinClientModel.findById(request.params.id).exec();
+        response.send(thinclient);
+    } catch (error) {
+        response.status(500).send(error);
+    }
+});
+
+router.put("/id/:id", async (request, response) => {
+    try {
+        var thinclient = await ThinClientModel.findById(request.params.id).exec();
+        if (request.body.settings) {
+            thinclient.set({
+                settings: request.body.settings
+            });
+        }
+        if (request.body.lastseen) {
+            thinclient.set({
+                lastseen: request.body.lastseen
+            });
+        }
+        if (request.body.lastknownip) {
+            thinclient.set({
+                lastknownip: request.body.lastknownip
+            });
+        }
+        if (request.body.wsversion) {
+            thinclient.set({
+                wsversion: request.body.wsversion
+            });
+        }
+        var result = await thinclient.save();
+        response.send(result);
+    } catch (error) {
+        response.status(500).send(error);
+    }
+});
+
+router.delete("/id/:id", async (request, response) => {
+    try {
+        var result = await ThinClientModel.deleteOne({ _id: request.params.id }).exec();
+        response.send(result);
+    } catch (error) {
+        response.status(500).send(error);
+    }
+});
+
 module.exports = router;

@@ -29,8 +29,8 @@
       <td>
         <button class="btn btn-dark" value="{{this.name}}">Oppdater</button>
       </td>
-      <tr class="more">
-        <td class="more" colspan="5">
+      <tr id="trinfo_{{this.name}}" style="display: none;" class="more">
+        <td id="tdinfo_{{this.name}}" style="display: none;" class="more" colspan="5">
           <div id="extra_{{this.name}}" class="slider" style="display: none;">
             <p>WS versjon: {{this.wsversion}}</p>
             <p>Sist sett: {{this.lastseen}}</p>
@@ -77,6 +77,8 @@
     });
   });
   $("a[id^=show_]").click(function (event) {
+    $("#trinfo_" + $(this).attr('id').substr(5)).show();
+    $("#tdinfo_" + $(this).attr('id').substr(5)).show();
     $("#extra_" + $(this).attr('id').substr(5)).slideToggle("slow");
     event.preventDefault();
   });
