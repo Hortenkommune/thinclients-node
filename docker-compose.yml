@@ -1,0 +1,19 @@
+version: '3'
+services: 
+  thinclients-node:
+    build: .
+    networks: 
+      - internal
+    depends_on: 
+      - mongodb
+    ports: 
+      - 3000:3000
+
+  mongodb:
+    image: docker.io/library/mongo:latest
+    networks: 
+      - internal
+
+networks: 
+  internal: 
+    internal: true
