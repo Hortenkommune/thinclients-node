@@ -3,7 +3,8 @@ services:
   thinclients-node:
     build: .
     networks: 
-      - internal
+      - dbnet
+      - web
     depends_on: 
       - mongodb
     ports: 
@@ -12,8 +13,9 @@ services:
   mongodb:
     image: docker.io/library/mongo:latest
     networks: 
-      - internal
+      - dbnet
 
 networks: 
-  internal: 
+  dbnet: 
     internal: true
+  web:
