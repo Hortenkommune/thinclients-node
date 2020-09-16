@@ -1,0 +1,29 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: publish
+  image: plugins/docker
+  settings:
+    registry: registry.intern.i-sone.no
+    repo: registry.intern.i-sone.no/jonas/thinclients-node
+    username:
+      from_secret: REGISTRY_USER
+    password:
+      from_secret: REGISTRY_PASSWORD
+    auto_tag: true
+  when:
+    event:
+    - push
+    - tag
+
+- name: teams-webhook
+  image: jdamata/drone-teams
+  settings:
+    webhook: 
+      from_secret: WEBHOOK
+
+trigger:
+  branch:
+  - master
