@@ -15,10 +15,8 @@ steps:
     auto_tag: true
   when:
     event:
-    - tag
-    branch:
-    - refs/tags/v*
-
+    - push
+    
 - name: teams-webhook
   image: jdamata/drone-teams
   settings:
@@ -31,6 +29,4 @@ steps:
 
 trigger:
   event:
-  - tag
-  branch:
-  - refs/tags/v*
+  - push
