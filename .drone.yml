@@ -23,6 +23,10 @@ steps:
   settings:
     webhook: 
       from_secret: WEBHOOK
+  when: 
+  status: 
+  - "success"
+  - "failure"
 
 trigger:
   branch:
