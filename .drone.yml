@@ -28,3 +28,9 @@ steps:
     status: 
     - success
     - failure
+
+trigger:
+  event:
+  - tag
+  branch:
+  - refs/tags/v*
