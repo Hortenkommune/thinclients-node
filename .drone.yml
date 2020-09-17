@@ -15,7 +15,6 @@ steps:
     auto_tag: true
   when:
     event:
-    - push
     - tag
 
 - name: teams-webhook
@@ -30,5 +29,4 @@ steps:
 
 trigger:
   event:
-  - push
   - tag
