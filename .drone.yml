@@ -26,7 +26,3 @@ steps:
     status: 
     - success
     - failure
-
-trigger:
-  event:
-  - tag
