@@ -6,8 +6,8 @@ steps:
 - name: publish
   image: plugins/docker
   settings:
-    registry: registry.intern.i-sone.no
-    repo: registry.intern.i-sone.no/jonas/thinclients-node
+    registry: harbor.intern.i-sone.no
+    repo: harbor.intern.i-sone.no/jonas/thinclients-node
     username:
       from_secret: REGISTRY_USER
     password:
