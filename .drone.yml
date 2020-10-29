@@ -6,13 +6,17 @@ steps:
 - name: publish
   image: plugins/docker
   settings:
-    registry: harbor.intern.i-sone.no
-    repo: harbor.intern.i-sone.no/jonas/thinclients-node
+    registry: harbor.horten.kommune.no
+    repo: harbor.horten.kommune.no/private/thinclients-node
     username:
       from_secret: REGISTRY_USER
     password:
       from_secret: REGISTRY_PASSWORD
-    auto_tag: true
+    tags:
+      - latest
+      - '1.0.0'
+      - '1.0'
+      - '1'
   when:
     event:
     - push
