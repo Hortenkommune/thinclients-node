@@ -1,4 +1,4 @@
-FROM docker.io/library/node:15-alpine-3.12
+FROM docker.io/library/node:15-alpine3.12
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install --production
