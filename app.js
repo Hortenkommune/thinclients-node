@@ -9,6 +9,7 @@ var bodyparser = require('body-parser');
 var indexRouter = require('./routes/index');
 var groupRouter = require('./routes/group');
 var thinclientRouter = require('./routes/thinclient');
+var configRouter = require('./routes/config');
 var thinstationHostsRouter = require('./routes/thinstation.hosts');
 
 var app = express();
@@ -44,6 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/group', groupRouter);
 app.use('/thinclient', thinclientRouter);
+app.use('/config', configRouter);
 app.use('/thinstation.hosts', thinstationHostsRouter);
 app.use('/./thinstation.hosts', thinstationHostsRouter);
 
