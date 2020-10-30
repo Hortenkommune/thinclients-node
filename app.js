@@ -11,6 +11,7 @@ var groupRouter = require('./routes/group');
 var thinclientRouter = require('./routes/thinclient');
 var configRouter = require('./routes/config');
 var thinstationHostsRouter = require('./routes/thinstation.hosts');
+var thinstationCfgRouter = require('./routes/thinstation.conf.network');
 
 var app = express();
 mongoose.connect(process.env.MONGO_CONN_STRING, { useNewUrlParser: true });
@@ -48,6 +49,8 @@ app.use('/thinclient', thinclientRouter);
 app.use('/config', configRouter);
 app.use('/thinstation.hosts', thinstationHostsRouter);
 app.use('/./thinstation.hosts', thinstationHostsRouter);
+app.use('/thinstation.conf.network', thinstationCfgRouter);
+app.use('/./thinstation.conf.network', thinstationCfgRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
