@@ -5,9 +5,9 @@ var TcConfigModel = require('../models/config');
 router.get("/", async (request, response) => {
     try {
         var result = await TcConfigModel.find().exec();
-        var output = "# THINSTATION CONF NETWORK";
+        var output = "";
         result.forEach(element => {
-            output += "\n" + element.name + "=" + element.value;
+            output +=  element.name + "=" + element.value + "\n";
         });
         var buf = Buffer.from(output, 'binary');
         response.setHeader('Content-type', 'application/octet-stream');
