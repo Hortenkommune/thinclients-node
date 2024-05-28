@@ -6,8 +6,9 @@ steps:
 - name: publish
   image: plugins/docker
   settings:
-    registry: harbor.horten.kommune.no
-    repo: harbor.horten.kommune.no/private/thinclients-node
+    registry:
+      from_secret: REGISTRY
+    repo: registry.horten.kommune.no/${DRONE_REPO_NAME}
     username:
       from_secret: REGISTRY_USER
     password:
