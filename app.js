@@ -14,7 +14,10 @@ var thinstationHostsRouter = require('./routes/thinstation.hosts');
 var thinstationCfgRouter = require('./routes/thinstation.conf.network');
 
 var app = express();
-mongoose.connect(process.env.MONGO_CONN_STRING, {});
+mongoose.connect(process.env.MONGO_CONN_STRING, { 
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
